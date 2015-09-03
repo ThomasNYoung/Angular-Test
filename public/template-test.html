@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Angular</title>
+</head>
+<body ng-app="templateTest">
+
+	<h1>Cool Angular stuff</h1>
+
+	<ul>
+	    <li ng-repeat="num in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]" ng-if="num % 3 != 0">
+	        {{ num }} is not divisible by threeve!
+	    </li>
+	</ul>
+
+	 <ul>
+         <li ng-repeat="letter in ['A', 'B', 'C', 'D', 'E', 'F']">{{ letter | uppercase}}</li><br>
+         <li ng-repeat="letter in ['A', 'B', 'C', 'D', 'E', 'F']">{{ letter | lowercase}} </li>
+    </ul>
+
+    <ul>
+    	<li ng-repeat="img in ['img/DeathtoStock_Wired2.jpg', 'img/intro-pic.jpg', 'img/picforres.jpg']">
+    		<img ng-src= " {{img}} " </li>
+    </ul>
+
+	<script type="text/javascript" src="/js/angular.min.js"></script>
+    <script type="text/javascript" src="/js/templateTest.js"></script>
+    <script type="text/css" src="/css/angularTest.css"></script>
+</body>
+</html>
