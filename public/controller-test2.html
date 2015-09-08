@@ -3,28 +3,41 @@
 <head>
 	<title>controller test</title>
 </head>
-<body ng-app="controllerTest2" class="container">
+<body ng-app="controllerTest" class="container">
 
-	<h1>Guitars</h1>
+    <h1>Guitars</h1>
+	<main ng-controller="CartController as cart">
+    <form novalidate ng-submit="cart.addGuitar()" name="guitarForm">
+        
+            <label>Brand</label>
+            <input type="text" name="brand" ng-model="cart.newGuitar.brand" required>
+            <label>Price</label>
+            <input type="number" name="price" ng-model="cart.newGuitar.price" required>
+            
+            
 
-	<div ng-controller="CartController as cart">
-        <form novalidate>
-            <input type="text" name="brand" ng-model="cart.newItem.brand">
-            <input type="text" name="brand" ng-model="cart.newItem.price">
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary" ng-if="guitarForm.$valid" >Add guitar</button>
+            </div>
+        
 
-            <button ng-click="cart.addItem()">add</button>
-        </form>
+    </form>
 
-        <code>
-            {{cart.newItem | json}}
-            {{cart.items | json}}
-        </code>
-    </div>
+            <ul>
+                <li ng-repeat="guitar in cart.guitar"> {{guitar.brand}} ${{guitar.price}} Quantity:{{guitar.quantity}} </li>
+                <li ng-repeat="guitar in cart.guitars" > {{guitar.brand}} ${{guitar.price}} </li>
+            </ul> 
 
-	<script type="text/javascript" src="/js/bower_components/angular/angular.min.js"></script>
+       
+    </main>
+	
+
+
+    <script type="text/javascript" src="/js/bower_components/angular/angular.min.js"></script>
     <script type="text/javascript" src="/js/controllerTest.js"></script>
-    <script type="text/css" src="/css/controllerTest.css"></script>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"	integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+    <!-- // <script type="text/css" src="/css/controllerTest.css"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha256-Sk3nkD6mLTMOF0EOpNtsIry+s1CsaqQC1rVLTAy+0yc= sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
 </body>

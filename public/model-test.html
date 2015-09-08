@@ -2,39 +2,60 @@
 <html>
 <head>
 	<title>angular models</title>
-</head>
-<body ng-app="modelTest">
+	</head>
+<body ng-app="modelTest" class="container">
 	<h1>Angular Models are cool!?</h1>
+	<main ng-controller="UserController as uCtrl">	
+		<form novalidate ng-submit="uCtrl.addUser()" name="userForm">
+		    <label for="first_name">First Name</label>
+		    <input type="text" id="first_name" ng-model="uCtrl.newUser.firstName" maxlength="50" required><br>
 
-	<form novalidate>
-	    <label for="first_name">First Name</label>
-	    <input type="text" id="first_name" ng-model="user.firstName" maxlength="50" required>
+		    <label for="last_name">Last Name</label>
+		    <input type="text" id="last_name"  ng-model="uCtrl.newUser.lastName" maxlength="100" required><br>
 
-	    <label for="last_name">Last Name</label>
-	    <input type="text" id="last_name"  ng-model="user.lastName" maxlength="100" required>
+		    <label for="email">eMail</label>
+		    <input type="email" id="email" ng-model="uCtrl.newUser.email" required><br>
 
-	    <label for="email">eMail</label>
-	    <input type="email" id="email" ng-model="user.email" required>
+		    <label for="bday">Birthday</label>
+		    <input type="date" id="date" ng-model="uCtrl.newUser.bday" required><br>
 
-	    <label for="bday">Birthday</label>
-	    <input type="date" id="date" ng-model="user.bday" required>
+		    <label for="github">gitHub username</label>
+		    <input type="http://www.github.com/" id="github" ng-model="uCtrl.newUser.github" required><br>
 
-	    <label for="github">gitHub Page</label>
-	    <input type="url" id="github" ng-model="user.github" required><br>
+		   <!--  <form>
+	        <select ng-dropdown="icon" type="img" id="icon" ng-model="user.icon">
+		    	<option for="icon" ng-repeat="img in ['img/DeathtoStock_Wired2.jpg', 'img/intro-pic.jpg', 'img/picforres.jpg']"> <img ng-src= " {{img}} "> </option>
+	        </select>
+	        </form> -->
+			
+			<div class="form-group">
+				<button type="submit" class="btn btn-primary" ng-if="userForm.$valid">Add User</button>
+			</div>
 
-	    <form>
-        <select ng-dropdown="icon" type="img" id="icon" ng-model="user.icon">
-	    	<option for="icon" ng-repeat="img in ['img/DeathtoStock_Wired2.jpg', 'img/intro-pic.jpg', 'img/picforres.jpg']"> <img ng-src= " {{img}} "> </option>
-        </select>
-        </form>
-		
+	        <div class="col-md-4">
+	        	<div class="well">
+	        		<h2>Welcome</h2>
 
-                                
-	    
-	</form>
+	        		<p>
+	        			Hello {{uCtrl.newUser.firstName}} {{uCtrl.newUser.lastName}},
+	        			you should be recieving an email at {{uCtrl.newUser.email}}
+	        		</p>
 
+
+	        	</div>
+	        </div>
+
+	        <ul>
+	        	<li ng-repeat="user in uCtrl.users"> {{user.firstName}} {{user.lastName}} </li>
+	        </ul>                        
+		    
+		</form>
+	</main>
 
 	<script type="text/javascript" src="/js/angular.min.js"></script>
     <script type="text/javascript" src="/js/modelTest.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"	integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha256-Sk3nkD6mLTMOF0EOpNtsIry+s1CsaqQC1rVLTAy+0yc= sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
 </body>
 </html>
