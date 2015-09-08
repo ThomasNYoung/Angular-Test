@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>angular models</title>
+</head>
+<body ng-app="modelTest">
+	<h1>Angular Models are cool!?</h1>
+
+	<form novalidate>
+	    <label for="first_name">First Name</label>
+	    <input type="text" id="first_name" ng-model="user.firstName" maxlength="50" required>
+
+	    <label for="last_name">Last Name</label>
+	    <input type="text" id="last_name"  ng-model="user.lastName" maxlength="100" required>
+
+	    <label for="email">eMail</label>
+	    <input type="email" id="email" ng-model="user.email" required>
+
+	    <label for="bday">Birthday</label>
+	    <input type="date" id="date" ng-model="user.bday" required>
+
+	    <label for="github">gitHub Page</label>
+	    <input type="url" id="github" ng-model="user.github" required><br>
+
+	    <form>
+        <select ng-dropdown="icon" type="img" id="icon" ng-model="user.icon">
+	    	<option for="icon" ng-repeat="img in ['img/DeathtoStock_Wired2.jpg', 'img/intro-pic.jpg', 'img/picforres.jpg']"> <img ng-src= " {{img}} "> </option>
+        </select>
+        </form>
+		
+
+                                
+	    
+	</form>
+
+
+	<script type="text/javascript" src="/js/angular.min.js"></script>
+    <script type="text/javascript" src="/js/modelTest.js"></script>
+</body>
+</html>

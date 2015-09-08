@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>controller test</title>
+</head>
+<body ng-app="controllerTest" class="container">
+
+	<h1>Guitars</h1>
+
+	<div ng-controller="CartController as ctrl">
+        <p ng-repeat="list in ctrl.guitarList"> {{list.brand}} ${{list.price}} 
+        	<button>Add to cart</button>
+        </p>
+        
+    </div>
+
+    <form novalidate>
+    <h3>Add a new guitar</h3>
+    <label for="brand">Brand</label>
+	    <input type="text" id="brand"    maxlength="100" required>
+
+	<label for="price">Price</label>
+	    <input type="number" id="pr"  maxlength="100" required>
+
+    <button type="submit" >submit</button>
+    </form>
+	<script type="text/javascript" src="/js/bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="/js/controllerTest.js"></script>
+    <script type="text/css" src="/css/controllerTest.css"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"	integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha256-Sk3nkD6mLTMOF0EOpNtsIry+s1CsaqQC1rVLTAy+0yc= sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+</body>
+</html>
